@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open sans';
+}
+
+.wrap {
+    width: 80%;
+    max-width: 90%;
+    margin: 30px auto;
+}
+
+ul.tabs {
+    width: 100%;
+    background: #363636;
+    list-style: none;
+    display: flex;
+}
+
+ul.tabs li {
+    width: 18%;
+}
+
+ul.tabs li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    padding: 20px 0px;
+}
+
+.active {
+    background: #0984CC;
+}
+
+ul.tabs li a .tab-text {
+    margin-left: 8px;
+}
+
+.secciones {
+    width: 100%;
+    background: #fff;
+}
+
+.secciones article {
+    padding: 30px;
+}
+
+.secciones article p {
+    text-align: justify;
+}
+
+@media screen and (max-width: 700px) {
+    ul.tabs li {
+        width: none;
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    ul.tabs li a {
+        padding: 15px 0px;
+    }
+    ul.tabs li a .tab-text {
+        display: none;
+    }
+    .secciones article {
+        padding: 20px;
+    }
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.url {
+    color: #009879;
+}
+
+.popup-overlay {
+    visibility: hidden;
+}
+
+.popup-content {
+    visibility: hidden;
+}
+
+.popup-overlay.active {
+    visibility: visible;
+}
+
+.popup-content.active {
+    visibility: visible;
+}
+
+.fecha_documento {
+    padding-top: 50px;
+}
+
+#buscardni {
+    text-align: center;
+    padding-top: 50px;
+    background-color: aquamarine;
+}
+
+#dni_entrada {
+    width: 40%;
+    height: 30px;
+    font-size: 16px;
+}
+
+#btnBuscarDni {
+    padding-top: 10px;
+    margin-top: 1em;
+    font-family: inherit;
+    letter-spacing: .1em;
+    width: 20%;
+    height: 35px;
+    border-radius: 35px;
+    border: none;
+    background-color: #1989FF;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.form-input {
+    color: rgba(0, 0, 0, .8);
+    font-weight: 600;
+    font-size: 1em;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    padding: 1.2em 0 .8em 0;
+    transition: all 300ms;
+}
+
+.form-input:focus,
+.form-input:active {
+    outline: none;
+    padding-top: 2em;
+}
+
+canvas {
+    border: 1px solid black;
+}
+
+.caja-firma {
+    padding-top: 100px;
+    margin-bottom: 100px;
+}
+
+.envio_exitoso {
+    align-self: center;
+    margin: 0 auto;
+    width: 60%;
+    height: 250px;
+    background: #90EE90;
+    padding: 20px;
+    border-radius: 35px;
+}
+
+.message_gracias {
+    color: #32C326;
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.message_exitoso {
+    color: #32C326;
+    font-size: 18px;
+}
+
+.envio_fallo {
+    align-self: center;
+    margin: 0 auto;
+    width: 60%;
+    height: 250px;
+    background: #F2B3B3;
+    padding: 20px;
+    border-radius: 35px;
+}
+
+.message_advertencia {
+    color: #F20530;
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.message_fallo {
+    color: #F20530;
+    font-size: 18px;
+}
+
+#message {
+    color: #F20530;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btnUpdateDocumento {
+    /*  padding-top: 10px;*/
+    margin-top: 1em;
+    /*  font-family: inherit;*/
+    letter-spacing: .1em;
+    width: 200px;
+    height: 35px;
+    border-radius: 16px;
+    border: none;
+    background-color: #1989FF;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.width-input {
+    width: 200px;
+}
