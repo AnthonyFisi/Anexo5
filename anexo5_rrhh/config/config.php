@@ -1,6 +1,8 @@
 <?php
-    define('URL','http://localhost/anexo5/anexo5_rrhh/');
+    //define('URL','http://localhost/anexo5/anexo5_rrhh/');
     
+    define('URL','http://ssma.sepcon.net/ssma/');
+
     //define('URL','http://192.168.0.3/ssma/');
     //define('URL','http://ssma.sepcon.net/ssma/');
 
