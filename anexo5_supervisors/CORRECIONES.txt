@@ -1,0 +1,16 @@
+TRABAJADORES
+
+-03366061
+-44554704
+-25691454
+
+
+-añadir el timestamp de las frimas 
+-dni de los dos usuarios
+-El cruce con la boleta
+-Objetivo unificar todo
+-CODIGO POR PERFIL.
+
+- CODIGO DEL EMPLEADO :PERFIL DE BBD AQUARIUS
+- EMISION -> DEFINIDO
+- FECHA DE EMISION DE DOCUMENTO REEMPLAZAR CON LA FECHA 

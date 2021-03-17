@@ -14,7 +14,7 @@
 <body>
 	<div class="wrap">
 		<div class="login">
-			<h1 class="login-title">Sistema Anexo5 - RRHH</h1>
+			<h2 class="login-title">Sistema Anexo5 - RRHH</h2>
 			<form action="<?php echo constant('URL')?>main/loginUser" method="POST" class="login-form" autocomplete>
 				<div class="form-group">
 					<label for="usuario" class="form-label"><i class="fas fa-user"></i> Usuario</label>

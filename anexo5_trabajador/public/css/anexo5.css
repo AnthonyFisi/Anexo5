@@ -101,7 +101,14 @@ canvas {
     font-size: 18px;
 }
 
-#message {
+#message_trabajador {
+    color: #F20530;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#message_supervisor {
     color: #F20530;
     font-size: 16px;
     font-weight: bold;
@@ -133,4 +140,29 @@ canvas {
     font-weight: 600;
     cursor: pointer;
     transition: all 300ms;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #1989FF;
+    /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    align-self: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.inicio {
+    font-weight: bold;
 }

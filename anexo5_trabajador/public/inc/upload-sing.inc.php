@@ -13,12 +13,16 @@
 
         // Path en donde se va a guardar la imagen
         $namefile =$_REQUEST['nombreyapellido'];
-        $namefile= preg_replace('/\s+/', '_', $namefile);
+        $namefile= preg_replace('/\s+/', '-', $namefile);
 
 
 
      
-        $file = 'C:/xampp/htdocs/anexo5_trabajador/firmas/'.$namefile.'.png';
+        $file = '../../firmas/'.$namefile.'.png';
+
+        $url_bbdd = 'http://127.0.0.1/anexo5/anexo5_trabajador/firmas/'.$namefile.'.png';
+        
+        //$url_bbdd = URL + 'firmas/'.$namefile.'.png';
 
 
         // Path en donde se va a guardar la imagen
@@ -42,7 +46,7 @@
       
 
 
-        echo  $file;
+        echo  $url_bbdd;
 
     }
 ?>

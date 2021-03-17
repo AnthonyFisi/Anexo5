@@ -55,13 +55,22 @@ $(document).ready(function() {
                     employee_data += '<td class="cargo">' + valueOfElement.cargo_trabajador + '</td>';
 
 
+                    const fecha_contrato = valueOfElement.fecha_contrato.replace(/\s/g, 'T');
+                    const fecha_documento = valueOfElement.fecha_documento.replace(/\s/g, 'T');
+
+
                     var url = 'id=' + valueOfElement.id +
                         '&dni=' + valueOfElement.dni_trabajador +
                         '&nombre=' + valueOfElement.nombre_trabajador.replace(/\s/g, '99') +
                         '&cargo=' + valueOfElement.cargo_trabajador.replace(/\s/g, '99') +
-                        '&url_firma=' + valueOfElement.url_firma_trabajador;
+                        '&url_firma=' + valueOfElement.url_firma_trabajador +
+                        '&fecha_contrato=' + fecha_contrato +
+                        '&fecha_documento=' + fecha_documento +
+                        '&usuario=' + valueOfElement.cod_usuario +
+                        '&fecha_traba=' + valueOfElement.fecha_firma_trabajador +
+                        '&fecha_super=' + valueOfElement.fecha_firma_supervisor;
 
-                    var data = '<a href=http://localhost/anexo5_supervisors/anexo5?' + url + '>Detalle</a>';
+                    var data = '<a href=http://localhost/anexo5/anexo5_supervisors/anexo5?' + url + '>Detalle</a>';
 
 
                     employee_data += '<td> ' + data + '</td>';

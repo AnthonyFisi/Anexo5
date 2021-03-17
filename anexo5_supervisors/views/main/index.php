@@ -18,7 +18,7 @@
        
     <div class="login">
             
-        <h1 class="login-title">Sistema Anexo5</h1>
+        <h2 class="login-title">Sistema Anexo5 - Supervisores</h2>
 
             <form action="<?php echo constant('URL')?>main/loginUser" method="POST" class="login-form" autocomplete>
                
@@ -42,13 +42,17 @@
             </form>
 
 
-            <button type="submit" class="generar-pdf">Ingresar</button>
-
         </div>
     </div>
-   
 
-  
+
+    
+
+    <script src="<?php echo constant('URL');?>public/js/jquery.js"></script>
+    <script src="<?php echo constant('URL');?>public/js/funciones.js"></script>
+   
+    <script src="<?php echo constant('URL');?>public/js/main.js"></script>
+
 
 
 </body>

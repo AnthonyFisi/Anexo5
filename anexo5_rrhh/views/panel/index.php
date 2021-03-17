@@ -13,12 +13,19 @@
 <body>
 	<div class="wrap">
 		<h1>Sistema anexo 5 - RRHH</h1>
+		<h3> 
+		<?php 
+		 $data1=  $_SESSION['nombres'];
+		 print $data1;
+		?>
+		</h3>
 		<ul class="tabs">
-			<li><a href="#tab1"><span class="fa fa-home"></span><span class="tab-text">Mensaje de Entrada</span></a></li>
+	<!--		<li><a href="#tab1"><span class="fa fa-home"></span><span class="tab-text">Mensaje de Entrada</span></a></li>-->
 			<li><a href="#tab2"><span class="fa fa-group"></span><span class="tab-text">Espera</span></a></li>
 			<li><a href="#tab3"><span class="fa fa-briefcase"></span><span class="tab-text">Listos</span></a></li>
 		</ul>
 		<div class="secciones">
+	<!--		
 			<article id="tab1">
 				<div>
 					<table id="table_entrada" class="styled-table">
@@ -59,6 +66,8 @@ $panel=new PanelModel();
 					</table>
 				</div>
 			</article>
+-->
+
 			<article id="tab2">
 				<div>
 					<table id="table_espera" class="styled-table">
@@ -178,6 +187,7 @@ $panel=new PanelModel();
 			</div>
 		</div>
 	</div>
+	
 	<script src="<?php echo constant('URL');?>public/js/jquery.js"></script>
 	<script src="<?php echo constant('URL');?>public/js/funciones.js"></script>
 	<script src="<?php echo constant('URL');?>public/js/panel.js"></script>

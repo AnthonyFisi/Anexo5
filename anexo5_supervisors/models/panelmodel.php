@@ -4,6 +4,7 @@ class Documento{
     public            $id;
     public      $dni_trabajador;
     public      $nombre_trabajador;
+    public      $cod_usuario;
     public      $cargo_trabajador;
     public           $dni_supervisor;
     public           $nombre_supervisor;
@@ -15,11 +16,16 @@ class Documento{
     public            $url_pdf;
     public           $id_estado;
 
-       function __construct( $id,$dni_trabajador,$nombre_trabajador,$cargo_trabajador,$dni_supervisor,$nombre_supervisor,$url_firma_trabajador,$url_firma_supervisor,$fecha_documento,$fecha_contrato,$url_pdf,$id_estado)  
+    public $fecha_firma_trabajador;
+    public $fecha_firma_supervisor;
+    
+
+       function __construct( $id,$dni_trabajador,$nombre_trabajador, $cod_usuario,$cargo_trabajador,$dni_supervisor,$nombre_supervisor,$url_firma_trabajador,$url_firma_supervisor,$fecha_documento,$fecha_contrato,$url_pdf,$id_estado,$fecha_firma_trabajador,$fecha_firma_supervisor)  
            { 
                $this->id= $id; 
                $this->dni_trabajador=$dni_trabajador;
                $this->nombre_trabajador=$nombre_trabajador;
+               $this->cod_usuario= $cod_usuario;
                $this->cargo_trabajador=$cargo_trabajador;
                $this->dni_supervisor=$dni_supervisor;
                $this->nombre_supervisor=$nombre_supervisor;
@@ -29,6 +35,8 @@ class Documento{
                $this->fecha_contrato=$fecha_contrato;
                $this->url_pdf=$url_pdf;
                $this->id_estado=$id_estado; 
+               $this->fecha_firma_trabajador=$fecha_firma_trabajador;
+               $this->fecha_firma_supervisor=$fecha_firma_supervisor;
            }
 }
 
@@ -47,6 +55,7 @@ class Documento{
                                                             id,
                                                             dni_trabajador,
                                                             nombre_trabajador,
+                                                            cod_usuario,
                                                             cargo_trabajador,
                                                             dni_supervisor,
                                                             nombre_supervisor,
@@ -55,7 +64,10 @@ class Documento{
                                                             fecha_documento,
                                                             fecha_contrato,
                                                             url_pdf,
-                                                            id_estado 
+                                                            id_estado,
+                                                            fecha_firma_trabajador,
+                                                            fecha_firma_supervisor
+
                                                         FROM documento  
                                                         WHERE documento.id_estado = '$id_estado' AND documento.dni_supervisor =  '$dni'"); 
   
@@ -65,6 +77,7 @@ class Documento{
                         $row['id'],
                         $row['dni_trabajador'],
                         $row['nombre_trabajador'],
+                        $row['cod_usuario'],
                         $row['cargo_trabajador'],
                         $row['dni_supervisor'],
                         $row['nombre_supervisor'],
@@ -73,7 +86,9 @@ class Documento{
                         $row['fecha_documento'],
                         $row['fecha_contrato'],
                         $row['url_pdf'],
-                        $row['id_estado']
+                        $row['id_estado'],
+                        $row['fecha_firma_trabajador'],
+                        $row['fecha_firma_supervisor']
                     );
 
         

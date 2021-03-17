@@ -11,24 +11,25 @@ class Main extends Controller{
         }
 
         function loginUser(){
-            $user   = $_POST['usuario'];
-            $clave  = $_POST['clave'];
-
-            $getUser = $this->model->getByUserPass($user, $clave);
+                $user   = $_POST['usuario'];
+                $clave  = $_POST['clave'];
+    
+                $getUser = $this->model->getByUserPass($user, $clave);
+                
+                if ( $getUser->usuario ) {
+    
+                    $this->view->mensaje   = $getUser->iniciales ;
+                    $this->view->nivel     = $getUser->ssma ;
+                    if( $getUser->dcargo)
+                    $this->view->render('panel/index');
+                }
+                else {
+                    $this->view->mensaje="Error en la clave o usuario";
+                    $this->view->render('errores/index');
+                }
             
-            if ( $getUser->usuario ) {
-
-                $this->view->mensaje   = $getUser->iniciales ;
-                $this->view->nivel     = $getUser->ssma ;
-                if( $getUser->dcargo)
-                $this->view->render('panel/index');
-            }
-            else {
-                $this->view->mensaje="Error en la clave o usuario";
-                $this->view->render('errores/index');
-            }
+           
         }
-
 
         function getUserMovil(){
             $user  = $_POST['user'];
@@ -53,5 +54,8 @@ class Main extends Controller{
                 echo json_encode($salidajson);
             }
         }
+
+
+      
     }
 ?>

@@ -16,7 +16,7 @@
                                                     WHERE USUARIO = :usuario AND CLAVE = :clave ');
 
            try{
-                $query->execute(['usuario'  => $user, 'clave' => $clave]);
+                $query->execute(['usuario'  => $user, 'clave' => SHA1($clave)]);
 
                 while($row = $query->fetch()){
 
@@ -47,36 +47,6 @@
             }
         }
 
-        public function getUserMovil($user,$pass) {
-            $item = new Usuario;
-
-            $query = $this->db->connect()->prepare('SELECT internal,apellidos,nombres,correo,usuario,ssma
-                                                    FROM tabla_aquarius
-                                                    WHERE USUARIO = :usuario AND CLAVE = :clave');
-            try {
-                $query->execute(['usuario'  => $user, 'clave' => SHA1($pass)]);
-
-                while ($row = $query->fetch()) {
-                    $item->internal     = $row['internal'];
-                    $item->nombres      = $row['nombres'].' '.$row['apellidos'];
-                    $item->ssma         = $row['ssma'];
-                    $item->usuario      = $row['usuario'];
-                }
-
-                if ( !$item->internal )
-                {
-                    $item->internal = null;
-                    $item->nombres  = null;
-                    $item->ssma     = null;
-                    $item->usuario  = null;
-                }
-                
-                return $item;
-
-            } catch (PDOException $e) {
-                return [];
-            }
-        }
 
        
     }

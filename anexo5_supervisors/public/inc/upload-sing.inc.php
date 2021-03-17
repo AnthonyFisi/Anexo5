@@ -13,9 +13,12 @@
    
         
         $namefile =$_SESSION['nombres'];
-        $namefile= preg_replace('/\s+/', '_', $namefile);
+        $namefile= preg_replace('/\s+/', '-', $namefile);
         //C:\xampp\htdocs\ssma\firmas
-        $file = 'C:/xampp/htdocs/anexo5_supervisors/firmas/'.$namefile.'.png';
+        $file = '../../firmas/'.$namefile.'.png';
+         $url_bbdd = 'http://127.0.0.1/anexo5/anexo5_supervisors/firmas/'.$namefile.'.png';
+      //  $url_bbdd = constant('URL').'firmas/'.$namefile.'.png';
+
 
         // borrar primero la imagen si existía previamente
         if (file_exists($file)) { unlink($file); }
@@ -25,6 +28,6 @@
         fwrite($fp, $imgData);
         fclose($fp);
 
-        echo  $file;
+        echo  $url_bbdd;
     }
 ?>

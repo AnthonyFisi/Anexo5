@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php require 'views/header.php'; ?>
+   
     <h2 style="color: red"><?php echo $this->mensaje?></h2>
 </body>
 </html>

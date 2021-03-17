@@ -164,7 +164,9 @@ $(document).ready(function() {
                     employee_data += '<td>' + valueOfElement.cargo_trabajador + '</td>';
 
                     employee_data += '<td>' + valueOfElement.nombre_supervisor + '</td>';
-                    employee_data += '<td>' + valueOfElement.url_pdf + '</td>';
+                    //   employee_data += '<td>' + valueOfElement.url_pdf + '</td>';
+
+                    employee_data += '<td>' + '<a href=' + valueOfElement.url_pdf + '>Ver pdf </a>' + '<td>';
 
                     employee_data += '<tr>';
 

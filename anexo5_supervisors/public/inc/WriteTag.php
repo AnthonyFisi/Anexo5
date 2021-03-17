@@ -1,5 +1,5 @@
 <?php
-require('../fpdf/fpdf.php');
+require('public/fpdf/fpdf.php');
 
 class PDF_WriteTag extends FPDF
 {

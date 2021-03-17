@@ -1,6 +1,5 @@
-//var RUTA = "http://localhost/anexo5/anexo5_supervisors/";
-//var RUTA = "http://192.168.0.3/ssma/";
-var RUTA = "http://ssma.sepcon.net/ssma/";
+//var RUTA = "http://ssma.sepcon.net/anexo5/anexo5_supervisors/";
+var RUTA = "http://localhost/anexo5/anexo5_supervisors/";
 
 
 function mostrarMensaje(clase, mensaje) {

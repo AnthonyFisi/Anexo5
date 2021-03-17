@@ -19,9 +19,7 @@ class Main extends Controller{
             if ( $getUser->usuario ) {
                 $this->view->mensaje   = $getUser->iniciales ;
                 $this->view->nivel     = $getUser->ssma ;
-                $this->view->sedes     = $this->model->getSedesTops();
-                $this->view->valores   = $this->model->getValuesTops();
-                $this->view->mes       = $this->model->getMonth();
+                
 
                 $this->view->render('panel/index');
             }
@@ -32,28 +30,6 @@ class Main extends Controller{
         }
 
 
-        function getUserMovil(){
-            $user  = $_POST['user'];
-            $pass  = $_POST['pass'];
-
-            $getUser = $this->model->getUserMovil($user,$pass);
-
-            if ( $getUser->internal ) {
-                $salidajson = array("id"=>$getUser->internal,
-                                    "nombre"=>$getUser->nombres,
-                                    "nivel"=>$getUser->ssma,
-                                    "usuario"=>$getUser->usuario,
-                                    "resultado"=>"true");
-                echo json_encode($salidajson,JSON_UNESCAPED_UNICODE);
-            }
-            else {
-                $salidajson = array("id"=>$getUser->internal,
-                                    "nombre"=>$getUser->nombres,
-                                    "nivel"=>$getUser->ssma,
-                                    "usuario"=>$getUser->usuario,
-                                    "resultado"=>"false");
-                echo json_encode($salidajson);
-            }
-        }
+        
     }
 ?>

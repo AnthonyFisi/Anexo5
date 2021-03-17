@@ -1,5 +1,5 @@
-$(function(){
-    $("#callReportes").on("click", function (e) {
+$(function() {
+    $("#callReportes").on("click", function(e) {
         e.preventDefault();
 
         $("#modalReporte").fadeIn();
@@ -7,11 +7,4 @@ $(function(){
         return false;
     });
 
-    $("#closeReporte").on("click", function (e) {
-        e.preventDefault();
-
-        $("#modalReporte").fadeOut();
-
-        return false;
-    });
 })

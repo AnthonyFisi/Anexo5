@@ -3,9 +3,10 @@
 
 $id   = $_GET['id'];
 $nombre   = $_GET['nombre'];
-$dni  = $_GET['dni'];
 $cargo   = $_GET['cargo'];
-$url_firma = $_GET['url_firma'];
+//$url_firma = $_GET['url_firma'];
+$fecha_contrato = $_GET['fecha_contrato'];
+$fecha_documento = $_GET['fecha_documento'];
 
 ?>
 
@@ -25,6 +26,8 @@ $url_firma = $_GET['url_firma'];
 <body>
 
  
+<div class="loader"></div>
+
 
 	
      <!-- CODIGO DEL DOCUMENTO-->
@@ -35,19 +38,19 @@ $url_firma = $_GET['url_firma'];
 			<div class="cabeceraDoc">
 					<div class="logo"> <img src="
 									<?php echo constant('URL')?>public/img/logo.png" alt=""> </div>
-					<div class="titulo">
-						<p>Programa de capacitacion especifica en el area de trabajo </p>
-						<p>Anexo 5</p>
-					</div>
-					<div class="formato">
-						<p>PSPC-610-X-PR-005-FR-004</p>
-						<p>Revisión: 0</p>
-						<!--
+									<div class="titulo">
+					<p>Programa de capacitación específica en el área de trabajo </p>
+					<p>Anexo 5</p>
+				</div>
+				<div class="formato">
+					<p>PSPC-610-X-PR-005-FR-004</p>
+					<p>Revisión: 0</p>
+					<!--
                         Generar fecha de forma automatica
                         -->
-						<p id="date_now"> </p>
-						<p>Página: 1 de 1</p>
-					</div>
+					<p>Emisión :08-05-2019 </p>
+					<p>Página: 1 de 1</p>
+				</div>
 				</div>
 
 
@@ -59,11 +62,56 @@ $url_firma = $_GET['url_firma'];
 					<input type="hidden" name="id_documento" id="id_documento" value="<?php $id= $_GET['id'];
 					print $id;?>">
 
-					<input type="hidden" name="dni_trabajador" id="dni_trabajador" value="
+				
+
+					<input type="hidden" name="nombre_trabajador" id="nombre_trabajador" value="
 					<?php 
-					$dni  = $_GET['dni'];
+					$nombre_trabajador  = $_GET['nombre'];
+					print $nombre_trabajador;
+					?>">
+					<input type="hidden" name="cargo_trabajador" id="cargo_trabajador" value="
+					<?php 
+					$cargo  = $_GET['cargo'];
+					print $cargo;
+					?>">
+					<input type="hidden" name="url_firma" id="url_firma" value="
+					<?php 
+					$url_firma  = $_GET['url_firma'];
+					print $url_firma;
+					?>">
+
+					<input type="hidden" name="fecha_contrato" id="fecha_contrato" value="
+					<?php 
+					$fecha_contrato  = $_GET['fecha_contrato'];
+					print $fecha_contrato;
+					?>">
+
+					<input type="hidden" name="fecha_documento" id="fecha_documento" value="
+					<?php 
+					$fecha_documento  = $_GET['fecha_documento'];
+					print $fecha_documento;
+					?>">
+
+
+					<input type="hidden" name="usuario" id="usuario" value="
+					<?php 
+					$usuario = $_GET['usuario'];
+					print $usuario;
+					?>">
+
+
+					<input type="hidden" name="dni_trabajador"  id="dni_trabajador" value="
+					<?php 
+					$dni = $_GET['dni'];
 					print $dni;
 					?>">
+
+					<input type="hidden" name="fecha_firma_trabajador" id="fecha_traba" value="
+					<?php 
+					$fecha_traba = $_GET['fecha_traba'];
+					print $fecha_traba;
+					?>">
+					
 
 					<input type="hidden" name="archivo" id="archivo">
 					
@@ -104,8 +152,11 @@ $url_firma = $_GET['url_firma'];
 										<div class="flex2 divGray">
 											<label for="fecha_ingreso" class="fondoblanco">Fecha de ingreso: </label>
 									
-											<p name="fecha_ingreso" id="fecha_ingreso" value="<?php echo date("Y-m-d");?>"> 
-											<?php print date("Y-m-d");?>
+											<p > 
+											<?php 
+											$fecha_contrato  =explode("T", $_GET['fecha_contrato']);
+											print $fecha_contrato[0];
+											?>
 										</p>
 										
 										</div>
@@ -121,14 +172,17 @@ $url_firma = $_GET['url_firma'];
 									</td>
 									<td>
 										<div class="flex2 divGray">
-											<label for="num_fotocheck" class="fondoblanco">Registro N° de Fotocheck: </label>
-											<p> - </p>
+											<label for="num_fotocheck" class="fondoblanco">Codigo de empleado: </label>
+											<p> <?php 
+											$usuario  =$_GET['usuario'];
+											print $usuario;
+											?> </p>
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<div class="flex1 divGray">
-											<p>Distrito : Llave </p>
+											<p>Distrito : Chilloroya </p>
 										</div>
 									</td>
 									<td>
@@ -202,10 +256,14 @@ $url_firma = $_GET['url_firma'];
 				
 										<div class="fecha_documento">
 
-											<label for="fecha_documento"  class="derecha">Fecha:
+											<label for="fecha_documento"  class="derecha">Fecha de emisión:
+											<p>
 											
-												<input type="date" class="derecha" name="fecha_documento" id="fecha_documento" value="<?php echo date("Y-m-d");?>">
-											
+											<?php 
+												$fecha_documento  = explode("T",$_GET['fecha_documento']);
+												print $fecha_documento[0];
+												?>
+											</p>											
 											</label>
 											 
 											
@@ -220,18 +278,36 @@ $url_firma = $_GET['url_firma'];
 
 														<td class="w100p">
 															
-														<!--
-															<div class="tablaConBordes">
-																<canvas id="firma" width="310" height="180"></canvas>
-																<p>Firma del trabajador</p> <span id="firmado" class="oculto">0</span>
-																<button type="button" class="button-blue" id="draw-clearBtn" > Limpiar firma </button>
-															</div>
-											-->
+												
 
-											<div class="tablaConBordes">
-											<img src="<?php print $this->url_firma;?>"  width="310" height="180"/>
-																
-															</div>
+											<div >
+												<div class=".tablaConBordesTrabajador">
+
+												
+											<img src="
+											<?php 
+											
+												print  $_GET['url_firma'];
+											?>"  width="310" height="180"/>
+											</div>
+											<p> <?php 
+											$nombre  = preg_replace("/99/"," ",$_GET['nombre']);
+											print $nombre;
+											?> </p>
+											<p> <?php 
+											$dni  =$_GET['dni'];
+											print "DNI:".$dni;
+											?> </p>
+											<p> <?php 
+											$fecha_traba  =$_GET['fecha_traba'];
+											print "Fecha:".$fecha_traba;
+											?> </p>
+											
+											<p>Firma del Trabajador </p>
+											
+											<span id="firmado" class="oculto">0</span>
+
+											</div>
 
 														
 														</td>
@@ -243,7 +319,11 @@ $url_firma = $_GET['url_firma'];
 															
 															<div class="tablaConBordes">
 																<canvas id="firma" width="310" height="180"></canvas>
-																<p>Firma del trabajador</p> <span id="firmado" class="oculto">0</span>
+																<p> <?php print "DNI:".$_SESSION['dni'] ?></p>
+
+																<p> <?php print preg_replace('/-/',' ',$_SESSION['nombres']);?></p>
+																<p>Firma del Supervisor</p>
+																 <span id="firmado" class="oculto">0</span>
 																<button type="button" class="button-blue" id="draw-clearBtn" > Limpiar firma </button>
 															</div>
 											
@@ -260,9 +340,9 @@ $url_firma = $_GET['url_firma'];
 					</div>
 
 					
-					<div class="center">
-						
-					<button  type="submit" class="btnUpdateDocumento login-submit size-width">Asignar Supervisor</button>
+					
+
+					<button  type="submit" class="btnUpdateDocumento login-submit size-width">Confirmar capacitacion</button>
 
 					</div>
 
@@ -283,9 +363,7 @@ $url_firma = $_GET['url_firma'];
 
 
     
-		<div class="floatingActionButton">
-        <a href="<?php echo constant('URL')?>panel"><i class="fas fa-home"></i></a>
-    </div>
+		
 
 
 	<div class="center">
@@ -294,6 +372,7 @@ $url_firma = $_GET['url_firma'];
 			<img src="public/img/verificado.png" >
 			<p class="message_gracias">Gracias</p>
 			<p class="message_exitoso">El formulario fue enviado con exito</p>
+			<a class="inicio" href= <?php echo constant('URL').'panel' ?> >Volver a inicio</a>
 		</div>
 
 	
@@ -302,12 +381,11 @@ $url_firma = $_GET['url_firma'];
 		<img src="public/img/fallo.png" >
 		<p class="message_advertencia">Error</p>
 		<p class="message_fallo">Presentamos problemas en este momento ,volver a intentar enviar</p>
+		<a class="inicio" href= <?php echo constant('URL').'panel' ?> >Volver a inicio</a>
 	</div>
 
 
-	<div class="floatingActionButton">
-        <a href="<?php echo constant('URL')?>panel"><i class="fas fa-home"></i></a>
-    </div>
+
 
 
 	</div>

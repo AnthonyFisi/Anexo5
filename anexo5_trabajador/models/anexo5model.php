@@ -6,11 +6,12 @@
         }
 
         public function insert($datos){
-            $estado=1;
+            $estado=2;
            try{ 
                 $query = $this->db->connectanexo5()->prepare('INSERT INTO documento (
                                                 dni_trabajador,
                                                 nombre_trabajador,
+                                                cod_usuario,
                                                 cargo_trabajador ,
                                                 dni_supervisor,
                                                 nombre_supervisor,
@@ -19,11 +20,15 @@
                                                 fecha_documento,
                                                 fecha_contrato,
                                                 url_pdf,
-                                                id_estado)
+                                                id_estado,
+                                                fecha_firma_trabajador,
+                                                fecha_firma_supervisor
+                                                )
                                                 
                                                 VALUES (
                                                 :dni_trabajador,
                                                 :nombre_trabajador,
+                                                :cod_usuario,
                                                 :cargo_trabajador ,
                                                 :dni_supervisor,
                                                 :nombre_supervisor,
@@ -32,22 +37,28 @@
                                                 :fecha_documento,
                                                 :fecha_contrato,
                                                 :url_pdf,
-                                                :id_estado)' );
+                                                :id_estado,
+                                                :fecha_firma_trabajador,
+                                                :fecha_firma_supervisor
+                                                )' );
 
 
 
                 $query->execute([
                                     'dni_trabajador'=> $datos['dni_trabajador'],
                                     'nombre_trabajador'=> $datos['nombre_trabajador'],
+                                    'cod_usuario'=> $datos['usuario'],
                                     'cargo_trabajador'=> $datos['cargo_trabajador'],
-                                    'dni_supervisor' =>  '',
-                                    'nombre_supervisor'=> '',
+                                    'dni_supervisor' =>  $datos['dni_supervisor'],
+                                    'nombre_supervisor'=>  $datos['nombre_supervisor'],
                                     'url_firma_trabajador' => $datos['url_firma_trabajador'],
                                     'url_firma_supervisor' =>  '',
                                     'fecha_documento' =>  $datos['fecha_documento'],
-                                    'fecha_contrato' =>  null,
+                                    'fecha_contrato' => $datos['fecha_ingreso'],
                                     'url_pdf' => '',
                                     'id_estado' =>  $estado,
+                                    'fecha_firma_trabajador' => date("Y-m-d"),
+                                    'fecha_firma_supervisor' => null
 
                                 ]);
                 return true;
@@ -64,11 +75,13 @@
 
             try{ 
                  
-                 $query = $this->db->connectrrhh()->prepare(" SELECT 
+                 $query = $this->db->connectrrhh()->prepare(" SELECT
+                                                                perfil, 
                                                                 dni,
                                                                 apellidos,
                                                                 nombres,
-                                                                dcargo 
+                                                                dcargo,
+                                                                fecha_ingreso
                                                         FROM 
                                                                 tabla_aquarius 
                                                         WHERE 

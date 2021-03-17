@@ -13,24 +13,39 @@
 <body>
 	<div class="center" id="divDni">
 		<div>
-			<h2>Ingresar DNI </h2> </div>
+			<h2>DNI trabajador </h2> </div>
+		<div class="w35">
+			<input class="form-input w45p" type="text" id="dni_trabajador_entrada" name="dni_trabajador_entrada" autocomplete="empty"> </div>
 		<div>
-			<input class="form-input" type="text" id="dni_entrada" name="dni_entrada" autocomplete="empty"> </div>
-		<div>
-			<p id="message">Dni incorrecto vuelva a intetarlo</p>
+			<p id="message_trabajador">Dni trabajador incorrecto</p>
 		</div>
+
+		<div>
+			<h2>DNI supervisor </h2> </div>
+		<div class="w35">
+			<input class="form-input w45p" type="text" id="dni_supervisor_entrada" name="dni_supervisor_entrada" autocomplete="empty"> </div>
+		<div>
+			<p id="message_supervisor">Dni supervisor incorrecto</p>
+		</div>
+
 		<div>
 			<button id="btnBuscarDni">Buscar</button>
 		</div>
 	</div>
+
+	<div class="loader"></div>
+
+
 	<div class="center">
 		<div class="envio_exitoso"> <img src="public/img/verificado.png">
 			<p class="message_gracias">Gracias</p>
 			<p class="message_exitoso">El formulario fue enviado con exito</p>
+			<a class="inicio" href= <?php print URL ?> >Volver a inicio</a>
 		</div>
 		<div class="envio_fallo"> <img src="public/img/fallo.png">
 			<p class="message_advertencia">Error</p>
 			<p class="message_fallo">Presentamos problemas en este momento ,volver a intentar enviar</p>
+			<a class="inicio" href= <?php print URL ?> >Volver a inicio</a>
 		</div>
 	</div>
 	<div id="wrap">
@@ -39,7 +54,7 @@
 				<div class="logo"> <img src="
 									<?php echo constant('URL')?>public/img/logo.png" alt=""> </div>
 				<div class="titulo">
-					<p>Programa de capacitacion especifica en el area de trabajo </p>
+					<p>Programa de capacitación específica en el área de trabajo </p>
 					<p>Anexo 5</p>
 				</div>
 				<div class="formato">
@@ -48,15 +63,22 @@
 					<!--
                         Generar fecha de forma automatica
                         -->
-					<p><?php print date("Y-m-d");?> </p>
+					<p>Emisión :08-05-2019 </p>
 					<p>Página: 1 de 1</p>
 				</div>
 			</div>
 			<form method="POST" id="formAnexo5">
 				<input type="hidden" name="archivo" id="archivo">
-				<input type="hidden" name="dni_trabajador" id="dni_trabajador">
-				<input type="hidden" name="nombre_trabajador" id="nombre_trabajador">
+				<input type="hidden" name="dni_trabajador" class="dni_trabajador">
+				<input type="hidden" name="nombre_trabajador" class="nombre_trabajador">
 				<input type="hidden" name="cargo_trabajador" id="cargo_trabajador">
+				<input type="hidden" name="usuario" id="val_usuario">
+
+
+				<input type="hidden" name="fecha_ingreso" id="val_fecha_ingreso">
+				<input type="hidden" name="dni_supervisor" class="dni_supervisor">
+				<input type="hidden" name="nombre_supervisor" class="nombre_supervisor">
+				
 				<div class="center">
 
 					<table class="tablaConBordes w100p">
@@ -82,8 +104,8 @@
 								<td>
 									<div class="flex2 divGray">
 										<label for="fecha_ingreso" class="fondoblanco">Fecha de ingreso: </label>
-										<p name="fecha_ingreso" id="fecha_ingreso" value="<?php echo date(" Y-m-d ");?>">
-											<?php print date("Y-m-d");?>
+										<p name="fecha_ingreso" id="fecha_ingreso" >
+											
 										</p>
 									</div>
 								</td>
@@ -96,14 +118,14 @@
 								</td>
 								<td>
 									<div class="flex2 divGray">
-										<label for="num_fotocheck" class="fondoblanco">Registro N° de Fotocheck: </label>
-										<p> - </p>
+										<label for="num_fotocheck" class="fondoblanco">Codigo del empleado :</label>
+										<p name="usuario" id="usuario" >  </p>
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<div class="flex1 divGray">
-										<p>Distrito : Llave </p>
+										<p>Distrito : Chilloroya </p>
 									</div>
 								</td>
 								<td>
@@ -167,13 +189,25 @@
 									<td class="w100p">
 										<div class="tablaConBordes">
 											<canvas id="firma" width="310" height="180"></canvas>
-											<p>Firma del trabajador</p> <span id="firmado" class="oculto">0</span>
+											<div>
+											<div>DNI:<p class="dni_trabajador"></p></div>
+											
+											<p class="nombre_trabajador"></p>
+											<p>Firma del trabajador</p> 
+
+											</div>
+											
+											
+											<span id="firmado" class="oculto">0</span>
+											
 											<button type="button" class="button-blue" id="draw-clearBtn"> Limpiar firma </button>
 										</div>
 									</td>
 									<td class="w100p">
 										<div class="tablaConBordes">
 											<canvas id="firma2"></canvas>
+											<div>DNI:<p class="dni_supervisor"></p></div>
+											<p class="nombre_supervisor"></p> 
 											<p>V° B° del Supervisor</p> <span id="firmado2" class="oculto">0</span> </div>
 									</td>
 								</tr>
@@ -182,23 +216,27 @@
 					</div>
 					<div class="manyInput"> </div>
 					<div class="center">
-					<div class="buttonsPage btnCancelar">
-						<button type="submit"  id="btnCancelar"> <i class="far fa-calendar-check"></i> Cancelar </button>
-					</div>
 
 					<div class="buttonsPage btnRegister">
 						<button type="submit"  id="btnRegister"> <i class="far fa-calendar-check"></i> Registrar Documento </button>
 					</div>
+					<div class="buttonsPage btnCancelar">
+						<button type="submit"  id="btnCancelar"> <i class="far fa-calendar-check"></i> Cancelar </button>
+					</div>
+
+					
 					</div>
 					
 			</form>
 			</div>
 			</div>
-			<div class="mensaje msj_info"> <span>Datos ingresados correctamente</span> </div>
+			
+			
 			<script src="<?php echo constant('URL');?>public/js/jquery.js"></script>
 			<script src="<?php echo constant('URL');?>public/js/funciones.js"></script>
 			<script src="<?php echo constant('URL');?>public/js/anexo5.js"></script>
 			<script src="<?php echo constant('URL');?>public/js/firma.js"></script>
+			<script src="<?php echo constant('URL');?>public/js/firmaMovil.js"></script>
 </body>
 
 </html>
