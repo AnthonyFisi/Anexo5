@@ -31,29 +31,7 @@ class Main extends Controller{
            
         }
 
-        function getUserMovil(){
-            $user  = $_POST['user'];
-            $pass  = $_POST['pass'];
-
-            $getUser = $this->model->getUserMovil($user,$pass);
-
-            if ( $getUser->internal ) {
-                $salidajson = array("id"=>$getUser->internal,
-                                    "nombre"=>$getUser->nombres,
-                                    "nivel"=>$getUser->ssma,
-                                    "usuario"=>$getUser->usuario,
-                                    "resultado"=>"true");
-                echo json_encode($salidajson,JSON_UNESCAPED_UNICODE);
-            }
-            else {
-                $salidajson = array("id"=>$getUser->internal,
-                                    "nombre"=>$getUser->nombres,
-                                    "nivel"=>$getUser->ssma,
-                                    "usuario"=>$getUser->usuario,
-                                    "resultado"=>"false");
-                echo json_encode($salidajson);
-            }
-        }
+      
 
 
       

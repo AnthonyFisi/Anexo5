@@ -4,17 +4,23 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="<?php echo constant('URL')?>public/css/personalizado.css">
+	<link rel="stylesheet" media="screen and (min-width: 601px)" href="<?php echo constant('URL')?>public/css/anexo5.css">
+-->
 	<title>Anexo 5</title>
 	<link rel="stylesheet" href="<?php echo constant('URL')?>public/css/global.css?v1.0.1">
 	<link rel="stylesheet" href="<?php echo constant('URL')?>public/css/all.css">
 	<link rel="stylesheet" href="<?php echo constant('URL')?>public/css/circle.css">
-	<link rel="stylesheet" href="<?php echo constant('URL')?>public/css/anexo5.css"> </head>
+	<link rel="stylesheet" href="<?php echo constant('URL')?>public/css/anexo5.css">
+
 
 <body>
+
 	<div class="center" id="divDni">
 		<div>
 			<h2>DNI trabajador </h2> </div>
-		<div class="w35">
+		<div>
 			<input class="form-input w45p" type="text" id="dni_trabajador_entrada" name="dni_trabajador_entrada" autocomplete="empty"> </div>
 		<div>
 			<p id="message_trabajador">Dni trabajador incorrecto</p>
@@ -22,32 +28,21 @@
 
 		<div>
 			<h2>DNI supervisor </h2> </div>
-		<div class="w35">
+		<div >
 			<input class="form-input w45p" type="text" id="dni_supervisor_entrada" name="dni_supervisor_entrada" autocomplete="empty"> </div>
 		<div>
 			<p id="message_supervisor">Dni supervisor incorrecto</p>
 		</div>
 
 		<div>
-			<button id="btnBuscarDni">Buscar</button>
+			<button class="btnBuscarDni-min" id="btnBuscarDni">Buscar</button>
 		</div>
 	</div>
 
 	<div class="loader"></div>
 
 
-	<div class="center">
-		<div class="envio_exitoso"> <img src="public/img/verificado.png">
-			<p class="message_gracias">Gracias</p>
-			<p class="message_exitoso">El formulario fue enviado con exito</p>
-			<a class="inicio" href= <?php print URL ?> >Volver a inicio</a>
-		</div>
-		<div class="envio_fallo"> <img src="public/img/fallo.png">
-			<p class="message_advertencia">Error</p>
-			<p class="message_fallo">Presentamos problemas en este momento ,volver a intentar enviar</p>
-			<a class="inicio" href= <?php print URL ?> >Volver a inicio</a>
-		</div>
-	</div>
+
 	<div id="wrap">
 		<div class="page">
 			<div class="cabeceraDoc">
@@ -182,38 +177,53 @@
 						<label for="fecha_documento" class="derecha">Fecha:
 							<input type="date" class="derecha" name="fecha_documento" id="fecha_documento" value="<?php echo date("Y-m-d");?>"> </label>
 					</div>
-					<div class="caja-firma">
-						<table>
-							<tbody>
-								<tr class="center">
-									<td class="w100p">
-										<div class="tablaConBordes">
-											<canvas id="firma" width="310" height="180"></canvas>
-											<div>
-											<div>DNI:<p class="dni_trabajador"></p></div>
-											
-											<p class="nombre_trabajador"></p>
-											<p>Firma del trabajador</p> 
 
-											</div>
-											
-											
-											<span id="firmado" class="oculto">0</span>
-											
-											<button type="button" class="button-blue" id="draw-clearBtn"> Limpiar firma </button>
-										</div>
-									</td>
-									<td class="w100p">
-										<div class="tablaConBordes">
-											<canvas id="firma2"></canvas>
-											<div>DNI:<p class="dni_supervisor"></p></div>
-											<p class="nombre_supervisor"></p> 
-											<p>V° B° del Supervisor</p> <span id="firmado2" class="oculto">0</span> </div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+					<div class="caja-firma center row ">
+						
+							
+								
+									<div class="column" >
+
+									<div class="tablaConBordes">
+                                       
+										<canvas id="firma" width="300" height="250" ></canvas>
+										                  
+										
+                                                                  <div>
+                                                                  <div>DNI:<p class="dni_trabajador"></p>
+																</div>
+                                                                  
+                                                                  <p class="nombre_trabajador"></p>
+                                                                  <p>Firma del trabajador</p> 
+
+                                                                  </div>
+                                                                  
+                                                                  
+                                                                  <span id="firmado" class="oculto">0</span>
+                                                                  
+                                                                  <button type="button" class="button-blue" id="draw-clearBtn"> Limpiar firma </button>
+                                    </div>
+                                                      
+									</div>
+
+									<div class="column">
+										
+									<div class="tablaConBordes">
+                                                                  <canvas id="firma2"  class="firma-digital">></canvas>
+                                                                  <div>DNI:<p class="dni_supervisor"></p></div>
+                                                                  <p class="nombre_supervisor"></p> 
+                                                                  <p>V° B° del Supervisor</p> <span id="firmado2" class="oculto">0</span> 
+                                                            </div>
+                                                      
+									</div>
+										
+										
+								
+							
+						
 					</div>
+
+
 					<div class="manyInput"> </div>
 					<div class="center">
 
@@ -230,6 +240,19 @@
 			</form>
 			</div>
 			</div>
+
+			<div class="center">
+				<div class="envio_exitoso"> <img src="public/img/verificado.png">
+					<p class="message_gracias">Gracias</p>
+					<p class="message_exitoso">El formulario fue enviado con exito</p>
+					<a class="inicio" href= <?php print URL ?> >Volver a inicio</a>
+				</div>
+				<div class="envio_fallo"> <img src="public/img/fallo.png">
+					<p class="message_advertencia">Error</p>
+					<p class="message_fallo">Presentamos problemas en este momento ,volver a intentar enviar</p>
+					<a class="inicio" href= <?php print URL ?> >Volver a inicio</a>
+				</div>
+			</div>
 			
 			
 			<script src="<?php echo constant('URL');?>public/js/jquery.js"></script>
@@ -237,6 +260,13 @@
 			<script src="<?php echo constant('URL');?>public/js/anexo5.js"></script>
 			<script src="<?php echo constant('URL');?>public/js/firma.js"></script>
 			<script src="<?php echo constant('URL');?>public/js/firmaMovil.js"></script>
+
+
+
+
+
+
+
 </body>
 
 </html>

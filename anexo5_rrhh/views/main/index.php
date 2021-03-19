@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<div class="wrap">
+	<div class="wrap2">
 		<div class="login">
 			<h2 class="login-title">Sistema Anexo5 - RRHH</h2>
 			<form action="<?php echo constant('URL')?>main/loginUser" method="POST" class="login-form" autocomplete>

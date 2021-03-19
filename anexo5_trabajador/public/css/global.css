@@ -137,7 +137,6 @@ select:focus {
 
 .center {
     text-align: center;
-    padding-top: 100px;
 }
 
 #closeModal {
@@ -680,7 +679,7 @@ select:focus {
 }
 
 .page {
-    width: 80%;
+    width: 100%;
     border: 1px solid black;
     overflow: auto;
     background-color: white;
@@ -1272,7 +1271,7 @@ select:focus {
 #wrap {
     width: 100%;
     margin: 10px auto;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px;*/
 }
 
 #wrap-panel {

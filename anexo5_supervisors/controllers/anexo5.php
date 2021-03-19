@@ -37,8 +37,6 @@
             $url_firma = $_POST['url_firma'];
             $fecha_contrato = $_POST['fecha_contrato'];
             $fecha_documento = $_POST['fecha_documento'];
-
-
             $dni_trabajador = $_POST['dni_trabajador'];
             $fecha_firma_trabajador = $_POST['fecha_firma_trabajador'];
 

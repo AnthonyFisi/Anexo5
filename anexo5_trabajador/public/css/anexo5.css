@@ -14,7 +14,7 @@
     font-size: 16px;
 }
 
-#btnBuscarDni {
+.btnBuscarDni-min {
     padding-top: 10px;
     margin-top: 1em;
     font-family: inherit;
@@ -165,4 +165,68 @@ canvas {
 
 .inicio {
     font-weight: bold;
+}
+
+
+/* Create four equal columns that floats next to each other */
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.firma-digital {
+    width: 300px;
+    height: 250px;
+}
+
+#divDni {
+    text-align: center;
+    margin-top: 200px;
+}
+
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other 
+
+@media screen and (max-width: 600px) {
+   
+}*/
+
+@media screen and (max-width: 600px) {
+    .btnBuscarDni-min {
+        width: 50%;
+    }
+    .column {
+        width: 100%;
+    }
+    .firma-digital {
+        width: 100%;
+    }
+    .button-blue {
+        width: 60%;
+    }
+    .buttonsPage button {
+        width: 80%;
+    }
+    .envio_exitoso {
+        width: 80%;
+        height: 300px;
+    }
+    .envio_fallo {
+        width: 80%;
+        height: 300px;
+    }
+    #divDni {
+        margin-top: 50px;
+    }
 }

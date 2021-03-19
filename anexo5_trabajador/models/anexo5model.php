@@ -57,7 +57,7 @@
                                     'fecha_contrato' => $datos['fecha_ingreso'],
                                     'url_pdf' => '',
                                     'id_estado' =>  $estado,
-                                    'fecha_firma_trabajador' => date("Y-m-d"),
+                                    'fecha_firma_trabajador' =>date('Y-m-d H:i:s'.substr((string)microtime(), 1, 4)),
                                     'fecha_firma_supervisor' => null
 
                                 ]);

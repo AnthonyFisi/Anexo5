@@ -2,24 +2,12 @@ $(document).ready(function() {
 
     tabEntrada();
 
-    $('ul.tabs li a:first').addClass('active');
-    $('.secciones article').hide();
-    $('.secciones article:first').show();
+    $(".reload").on('click', function(event) {
 
-    $('ul.tabs li a').click(function() {
+        event.preventDefault();
 
-        $('ul.tabs li a').removeClass('active');
-        $(this).addClass('active');
-        $('.secciones article').hide();
+        tabEntrada();
 
-        var activeTab = $(this).attr('href');
-
-        if (activeTab === "#tab1") {
-            tabEntrada();
-        }
-        console.log('TAB');
-        console.log(activeTab)
-        $(activeTab).show();
         return false;
     });
 
@@ -46,7 +34,11 @@ $(document).ready(function() {
 
                 var employee_data = '';
 
+                var cantidad = 0;
+
                 $.each(JSON.parse(listas_rep), function(indexInArray, valueOfElement) {
+
+                    cantidad++;
 
                     employee_data += '<tr class="active-row">';
                     employee_data += '<td class="id">' + valueOfElement.id + '</td>';
@@ -59,6 +51,7 @@ $(document).ready(function() {
                     const fecha_documento = valueOfElement.fecha_documento.replace(/\s/g, 'T');
 
 
+
                     var url = 'id=' + valueOfElement.id +
                         '&dni=' + valueOfElement.dni_trabajador +
                         '&nombre=' + valueOfElement.nombre_trabajador.replace(/\s/g, '99') +
@@ -67,10 +60,12 @@ $(document).ready(function() {
                         '&fecha_contrato=' + fecha_contrato +
                         '&fecha_documento=' + fecha_documento +
                         '&usuario=' + valueOfElement.cod_usuario +
-                        '&fecha_traba=' + valueOfElement.fecha_firma_trabajador +
+                        '&fecha_traba=' + valueOfElement.fecha_firma_trabajador.replace(/\s/g, 'T') +
                         '&fecha_super=' + valueOfElement.fecha_firma_supervisor;
 
-                    var data = '<a href=http://localhost/anexo5/anexo5_supervisors/anexo5?' + url + '>Detalle</a>';
+
+
+                    var data = '<a class="ver-pdf" href=http://localhost/anexo5/anexo5_supervisors/anexo5?' + url + '>Firma pdf</a>';
 
 
                     employee_data += '<td> ' + data + '</td>';
@@ -79,6 +74,8 @@ $(document).ready(function() {
                     employee_data += '<tr>';
 
                 });
+
+                $("#cantidad-documentos").text("Bandeja de documentos (" + cantidad + ")");
 
                 var todo = '<tbody>' + employee_data + '</tbody>';
 

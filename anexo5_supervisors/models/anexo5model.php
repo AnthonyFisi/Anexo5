@@ -70,13 +70,16 @@
                 $query = $this->db->connectanexo5()->prepare(' UPDATE documento SET 
                                                                                 URL_PDF =:url_pdf,
                                                                                 URL_FIRMA_SUPERVISOR =:url_firma_supervisor ,
-                                                                                ID_ESTADO =:id_estado
+                                                                                ID_ESTADO =:id_estado,
+                                                                                FECHA_FIRMA_SUPERVISOR =:fecha_firma_supervisor
                                                                                  WHERE ID =:id ');
                 
                 $query->execute(['url_pdf' => $url_pdf,
                                 'url_firma_supervisor'=>$url_supervisor,
                                 'id_estado' =>$id_estado,
-                                'id' =>$id_documento]);
+                                'id' =>$id_documento,
+                                'fecha_firma_supervisor' =>date('Y-m-d H:i:s'.substr((string)microtime(), 1, 4))
+                                ]);
 
 
                 return true;
@@ -218,7 +221,7 @@
             $pdf->SetXY(135,243);
             $pdf->Cell(50,6,utf8_decode( $nombre_supervisor ));
             $pdf->SetXY(135,245);
-            $pdf->Cell(50,6,utf8_decode( "Fecha:".date("Y-m-d")));
+            $pdf->Cell(50,6,utf8_decode( "Fecha:".date('Y-m-d H:i:s'.substr((string)microtime(), 1, 4))));
             $pdf->SetXY(135,248);
             $pdf->Cell(50,6,utf8_decode( "Firma del Supervisor"));
     

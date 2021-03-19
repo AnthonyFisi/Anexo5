@@ -57,15 +57,7 @@ ul.tabs li a .tab-text {
     text-align: justify;
 }
 
-@media screen and (max-width: 700px) {
-    ul.tabs li {
-        width: none;
-        flex-basis: 0;
-        flex-grow: 1;
-    }
-}
-
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
     ul.tabs li a {
         padding: 15px 0px;
     }
@@ -75,19 +67,29 @@ ul.tabs li a .tab-text {
     .secciones article {
         padding: 20px;
     }
+    .div-table {
+        padding-top: 150px;
+        width: 100%;
+    }
+    .styled-table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
 }
 
 .styled-table {
     border-collapse: collapse;
-    margin: 25px 0;
+    /*   margin: 25px 0;*/
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
+    width: 100%;
+    top: 50px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #1989FF;
     color: #ffffff;
     text-align: left;
 }
@@ -111,9 +113,51 @@ ul.tabs li a .tab-text {
 
 .styled-table tbody tr.active-row {
     font-weight: bold;
-    color: #009879;
+    color: #353839;
 }
 
 .url {
-    color: #009879;
+    color: #353839;
+}
+
+.center {
+    text-align: center;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 80px;
+}
+
+.reload {
+    background: white;
+    border-color: white;
+    border-radius: 10px;
+    height: 30px;
+    width: 30px;
+}
+
+.imagen-reload {
+    height: 15px;
+    width: 15px;
+}
+
+.bandeja {
+    /*   background: #CFEEFA;*/
+    color: #1989FF;
+    padding: 0px;
+    border-radius: 10px;
+    width: 70%;
+    padding: 5px;
+    right: 50px;
+}
+
+.ver-pdf {
+    text-decoration: none;
+    padding: 5px;
+    background: #16d45f;
+    color: white;
+    border-radius: 10px;
 }

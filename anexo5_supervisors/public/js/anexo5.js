@@ -2,7 +2,7 @@ $(function() {
 
     $(".loader").hide();
 
-    $(".btnUpdateDocumento").on('click', function(event) {
+    $("#btnRegister").on('click', function(event) {
         event.preventDefault();
 
         // $('#preguntaTexto,#respuestaTexto').val('');
