@@ -102,6 +102,7 @@
 
 
             require 'public/inc/WriteTag.php';
+            require_once 'config/config.php';
 
             $namefile= preg_replace('/\s+/', '-', $nombre_supervisor);
 
@@ -238,7 +239,9 @@
 
             
 
-            $filename="http://127.0.0.1/anexo5/anexo5_supervisors/public/carta/".$filename;
+           // $filename="http://127.0.0.1/anexo5/anexo5_supervisors/public/carta/".$filename;
+            $filename= constant('URL')."/public/carta/".$filename;
+
 
 
             return $filename;

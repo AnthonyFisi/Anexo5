@@ -1,4 +1,6 @@
 <?php
+    require_once '../../config/config.php';
+
     session_start();
 
     if (array_key_exists('img',$_REQUEST)) {
@@ -20,9 +22,9 @@
      
         $file = '../../firmas/'.$namefile.'.png';
 
-        $url_bbdd = 'http://127.0.0.1/anexo5/anexo5_trabajador/firmas/'.$namefile.'.png';
+     //   $url_bbdd = 'http://127.0.0.1/anexo5/anexo5_trabajador/firmas/'.$namefile.'.png';
         
-        //$url_bbdd = URL + 'firmas/'.$namefile.'.png';
+        $url_bbdd = constant('URL') . 'firmas/'.$namefile.'.png';
 
 
         // Path en donde se va a guardar la imagen

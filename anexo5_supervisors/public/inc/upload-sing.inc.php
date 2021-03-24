@@ -1,4 +1,6 @@
 <?php
+    require_once '../../config/config.php';
+    
     session_start();
 
     if (array_key_exists('img',$_REQUEST) ) {
@@ -16,8 +18,8 @@
         $namefile= preg_replace('/\s+/', '-', $namefile);
         //C:\xampp\htdocs\ssma\firmas
         $file = '../../firmas/'.$namefile.'.png';
-         $url_bbdd = 'http://127.0.0.1/anexo5/anexo5_supervisors/firmas/'.$namefile.'.png';
-      //  $url_bbdd = constant('URL').'firmas/'.$namefile.'.png';
+        //$url_bbdd = 'http://127.0.0.1/anexo5/anexo5_supervisors/firmas/'.$namefile.'.png';
+        $url_bbdd = constant('URL').'firmas/'.$namefile.'.png';
 
 
         // borrar primero la imagen si existía previamente
