@@ -58,7 +58,8 @@
 					<!--
                         Generar fecha de forma automatica
                         -->
-					<p>Emisión :08-05-2019 </p>
+					<p>Emisión : </p>
+					<p>08/05/2019 </p>
 					<p>Página: 1 de 1</p>
 				</div>
 			</div>
@@ -208,11 +209,11 @@
 
 									<div class="column">
 										
-									<div class="tablaConBordes">
-                                                                  <canvas id="firma2"  class="firma-digital">></canvas>
-                                                                  <div>DNI:<p class="dni_supervisor"></p></div>
+													<div >
+                                                                <!--  <canvas id="firma2"  ></canvas>
+                                                              <div>DNI:<p class="dni_supervisor"></p></div>
                                                                   <p class="nombre_supervisor"></p> 
-                                                                  <p>V° B° del Supervisor</p> <span id="firmado2" class="oculto">0</span> 
+                                                                  <p>V° B° del Supervisor</p> <span id="firmado2" class="oculto">0</span> -->
                                                             </div>
                                                       
 									</div>
@@ -228,10 +229,10 @@
 					<div class="center">
 
 					<div class="buttonsPage btnRegister">
-						<button type="submit"  id="btnRegister"> <i class="far fa-calendar-check"></i> Registrar Documento </button>
+						<button type="submit"  id="btnRegister">  Registrar Documento </button>
 					</div>
 					<div class="buttonsPage btnCancelar">
-						<button type="submit"  id="btnCancelar"> <i class="far fa-calendar-check"></i> Cancelar </button>
+						<button type="submit"  id="btnCancelar">  Cancelar </button>
 					</div>
 
 					

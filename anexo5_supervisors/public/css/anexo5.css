@@ -62,8 +62,8 @@ canvas {
     margin-top: 1em;
     font-family: inherit;
     letter-spacing: .1em;
-    width: 20%;
-    height: 35px;
+    width: 35%;
+    height: 40px;
     border-radius: 35px;
     border: none;
     background-color: #16d45f;
@@ -230,5 +230,13 @@ canvas {
     }
     .btnCancelar a {
         width: 80%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    #wrap1 {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 10%;
     }
 }

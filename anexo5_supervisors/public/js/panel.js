@@ -30,7 +30,6 @@ $(document).ready(function() {
             })
             .done(function(listas_rep) {
 
-                console.log(listas_rep);
 
                 var employee_data = '';
 
@@ -42,7 +41,7 @@ $(document).ready(function() {
 
                     employee_data += '<tr class="active-row">';
                     employee_data += '<td class="id">' + valueOfElement.id + '</td>';
-                    employee_data += '<td class="dni">' + valueOfElement.dni_trabajador + '</td>';
+                    //       employee_data += '<td class="dni">' + valueOfElement.dni_trabajador + '</td>'; 
                     employee_data += '<td class="nombre">' + valueOfElement.nombre_trabajador + '</td>';
                     employee_data += '<td class="cargo">' + valueOfElement.cargo_trabajador + '</td>';
 
@@ -65,11 +64,10 @@ $(document).ready(function() {
 
 
 
-                    var data = '<a class="ver-pdf" href=http://localhost/anexo5/anexo5_supervisors/anexo5?' + url + '>Firma pdf</a>';
+                    var data = '<a class="ver-pdf" href=' + RUTA + '/anexo5?' + url + '>Firmar</a>';
 
 
                     employee_data += '<td> ' + data + '</td>';
-                    console.log('<td> ' + data + '</a></td>');
 
                     employee_data += '<tr>';
 

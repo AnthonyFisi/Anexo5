@@ -30,7 +30,8 @@
 						<!--
                         Generar fecha de forma automatica
                         -->
-						<p>Emisión :08-05-2019 </p>
+						<p>Emisión : </p>
+						<p>08/05/2019 </p>
 						<p>Página: 1 de 1</p>
 					</div>
 				</div>

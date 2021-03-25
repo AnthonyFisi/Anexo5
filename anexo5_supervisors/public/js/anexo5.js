@@ -5,14 +5,10 @@ $(function() {
     $("#btnRegister").on('click', function(event) {
         event.preventDefault();
 
-        // $('#preguntaTexto,#respuestaTexto').val('');
 
 
         var canvas = document.getElementById("firma");
 
-        console.log('data adm');
-
-        console.log(canvas.toDataURL());
 
         $("#wrap").hide(0);
         $("#wrap1").hide(0);
@@ -22,11 +18,9 @@ $(function() {
 
                 $('#archivo').val(data);
 
-                console.log('DATAAAAAAAAAAAAA');
 
             })
             .done(function() {
-                console.log('here');
                 $("#formAnexo5").trigger('submit');
             })
 
@@ -40,9 +34,6 @@ $(function() {
         event.preventDefault();
 
         var str = $(this).serialize();
-
-        console.log('DATA ENVIADA');
-        console.log(str);
 
         var url_supervisor = $('#archivo').val();
 
@@ -90,11 +81,9 @@ $(function() {
             })
             .done(function(listas_rep) {
 
-                console.log(listas_rep);
 
                 $(".loader").hide();
-                /*   $("#wrap").hide(0);
-                   $("#wrap1").hide(0);*/
+
 
                 if (listas_rep === '1') {
 

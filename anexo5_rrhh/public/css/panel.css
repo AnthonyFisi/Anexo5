@@ -6,14 +6,18 @@
     box-sizing: border-box;
 }
 
+
+/*
 body {
     font-family: 'Open sans';
+
 }
+*/
 
 .wrap {
-    width: 90%;
-    max-width: 90%;
-    margin: 30px auto;
+    width: 100%;
+    /*   max-width: 90%;
+    margin: 30px auto;*/
 }
 
 ul.tabs {
@@ -22,6 +26,9 @@ ul.tabs {
     display: flex;
     color: #1989FF;
     text-align: center;
+    padding-left: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 ul.tabs li {
@@ -68,7 +75,7 @@ ul.tabs li a .tab-text {
         padding: 15px 0px;
     }
     .secciones article {
-        padding: 20px;
+        padding: 10px;
     }
     .div-table {
         padding-top: 150px;

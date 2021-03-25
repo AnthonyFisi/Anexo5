@@ -1,4 +1,3 @@
-//var RUTA = "http://ssma.sepcon.net/anexo5/anexo5_trabajador/";
 var RUTA = "http://localhost/anexo5/anexo5_trabajador/";
 
 

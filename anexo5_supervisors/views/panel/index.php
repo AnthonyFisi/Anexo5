@@ -51,7 +51,7 @@
 						<thead>
 							<tr class="active-row">
 								<th class="id">id</th>
-								<th class="dni">DNI</th>
+					<!--			<th class="dni">DNI</th> -->
 								<th class="nombre">Nombre de trabajador</th>
 								<th class="cargo">Cargo</th>
 								<th>PDF</th>

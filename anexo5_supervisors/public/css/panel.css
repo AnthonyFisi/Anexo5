@@ -11,9 +11,9 @@ body {
 }
 
 .wrap {
-    width: 80%;
-    max-width: 90%;
-    margin: 30px auto;
+    width: 100%;
+    margin-left: 2%;
+    padding-right: 5%;
 }
 
 ul.tabs {

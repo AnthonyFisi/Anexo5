@@ -58,7 +58,7 @@
 								<th>Nombre de trabajador</th>
 								<th>Cargo</th>
 								<th>Nombre supervisor</th>
-								<th>url_pdf</th>
+								<th>PDF</th>
 							</tr>
 						</thead>
 					</table>
